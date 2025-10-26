@@ -53,7 +53,8 @@ body {
     gap : 35px;
     /* Linklar soni ko'payganligi sababli, logoni markazda ushlab turish uchun */
     flex-grow: 1; 
-    justify-content: space-around; 
+    justify-content: space-between; 
+    align-items: center;
 }
 
 .header__links a {
