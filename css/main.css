@@ -1,0 +1,281 @@
+* {
+    margin     : 0;
+    padding    : 0;
+    box-sizing : border-box;
+    font-family: "Poppins", sans-serif;
+       list-style: none;
+}
+
+body {
+    background: #000;
+    color     : #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin   : 0 auto;
+    padding  : 10px 50px;
+}
+
+/* Banner */
+.banner {
+    background: #000;
+    color     : #fff;
+    text-align: center;
+    font-size : 14px;
+    padding   : 8px 0;
+    position  : fixed;
+    top       : 0;
+    left      : 0;
+    width     : 100%;
+    z-index   : 1000;
+}
+
+/* Header */
+.header {
+    position  : fixed;
+    top       : 40px;
+    left      : 0;
+    width     : 100%;
+    z-index   : 999;
+    transition: 0.3s ease;
+}
+
+.header__nav {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+}
+
+.header__links {
+    display : flex;
+    list-style: none;
+    gap : 35px;
+    /* Linklar soni ko'payganligi sababli, logoni markazda ushlab turish uchun */
+    flex-grow: 1; 
+    justify-content: space-around; 
+}
+
+.header__links a {
+    color          : #fff;
+    text-decoration: none;
+    font-size      : 16px;
+    position       : relative;
+    transition     : color 0.4s ease;
+}
+
+.header__links a::after {
+    content   : "";
+    position  : absolute;
+    bottom    : -5px;
+    left      : 0;
+    width     : 0%;
+    height    : 2px;
+    background: linear-gradient(90deg, #ff8c00, #fff);
+    transition: width 0.4s ease;
+}
+
+.header__links a:hover {
+    color: #ffcc99;
+}
+
+.header__links a:hover::after {
+    width: 100%;
+}
+
+.header__logo img {
+    margin-right: 100px;
+}
+
+.header.scrolled {
+    backdrop-filter: blur(8px);
+    background     : rgba(0, 0, 0, 0.4);
+}
+
+/* Hero */
+.hero {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    position       : relative;
+    height         : 100vh;
+    overflow       : hidden;
+    background     : #996b60;
+}
+
+.hero__image {
+    flex      : 1;
+    background: url("../img/hero.svg") center/cover no-repeat;
+    height    : 100%;
+    transition: background-image 1s ease-in-out;
+}
+
+.hero__content {
+    flex           : 1;
+    background     : #996b60;
+    color          : #fff;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : flex-start;
+    padding        : 50px;
+}
+
+.hero__content h1 {
+    font-size    : 52px;
+    margin-bottom: 20px;
+}
+
+.hero__content p {
+    font-size    : 18px;
+    line-height  : 1.6;
+    margin-bottom: 30px;
+    max-width    : 500px;
+}
+
+.hero__btn {
+    border    : 1px solid #f6f6f6;
+    background: transparent;
+    color     : #fff;
+    padding   : 15px 45px;
+    font-size : 16px;
+    cursor    : pointer;
+    position  : relative;
+    overflow  : hidden;
+    transition: all 0.4s ease;
+}
+
+.hero__btn::before {
+    content   : "";
+    position  : absolute;
+    top       : 0;
+    left      : -100%;
+    width     : 100%;
+    height    : 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.4s ease;
+}
+
+.hero__btn:hover::before {
+    left: 0;
+}
+
+.hero__btn:hover {
+    background: #fff;
+    color     : #000;
+}
+
+/* Center Logo */
+.hero__logo {
+    position : absolute;
+    left     : 50%;
+    top      : 50%;
+    transform: translate(-50%, -50%);
+    z-index  : 2;
+    width    : 150px;
+    height   : 150px;
+}
+
+.hero__logo img {
+    width  : 100%;
+    opacity: 0.85;
+}
+
+/* Bars */
+.hero__bars {
+    position : absolute;
+    bottom   : 25px;
+    left     : 50%;
+    right: 37%;
+    transform: translateX(-50%);
+    display  : flex;
+    gap      : 8px;
+}
+
+.bar {
+    width        : 40px;
+    height       : 4px;
+    background   : rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    transition   : background 0.3s;
+}
+
+.bar.active {
+    background: #fff;
+}
+
+/* Burger */
+.header__burger {
+    display        : none;
+    flex-direction : column;
+    justify-content: space-between;
+    width          : 28px;
+    height         : 20px;
+    cursor         : pointer;
+}
+
+.header__burger span {
+    display      : block;
+    height       : 3px;
+    background   : #fff;
+    border-radius: 5px;
+    transition   : all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+ /* Linklarni standart rejimda yashirish */
+    .header__links {
+        display: none;
+    }
+    .header__burger {
+        display: flex;
+        z-index: 1000; 
+    }
+    
+    /* **YANGILANGAN QOIDALAR** */
+    .header__links.menu-open {
+        display : flex;
+        flex-direction: column;
+        /* Barcha linklarni ko'rsatish uchun flex-direction: column */
+        position : fixed; /* Absolute emas, endi fixed foydalanamiz */
+        top : 0;
+        right : 0;
+        width : 70%; /* Mobil menyu kengligi */
+        height : 100vh;
+        background : rgba(0, 0, 0, 0.733); /* Qora fon */
+        backdrop-filter: blur(5px);
+        padding : 80px 40px 20px; /* Yuqoridan joy qoldirish */
+        gap: 10px;
+        z-index: 999;
+        /* Menyuni ekrandan tashqaridan kirib kelish effekti */
+        transform: translateX(0%); 
+        transition: transform 0.3s ease-out;
+        
+    }
+    
+    /* Agar menyu yopiq bo'lsa, uni ekrandan tashqariga surish */
+    .header__links:not(.menu-open) {
+        transform: translateX(100%);
+    }
+
+    .hero { 
+        flex-direction: column-reverse; 
+    }
+    .hero__image { 
+        width : 100%; 
+        height: 50vh; 
+    }
+    .hero__content { 
+        width : 100%; 
+        height : 50vh; 
+        align-items: center; 
+        text-align : center; 
+        padding : 40px; 
+        margin-top : 50px; 
+    }
+    
+}
+
+
+
