@@ -575,6 +575,9 @@
 .work__box{
     padding-left: 50px;
 }
+.work__container img{
+    width: 550px;
+}
 .work__box h2{
    font-family: Liberation Serif;
 font-weight: 400;
@@ -602,16 +605,20 @@ margin-bottom: 25px;
 }
 /* Responsive */
 @media (max-width: 768px) {
+    .work__box button{
+        display: block;
+        margin: 0 auto;
+    }
+    .work__container img{
+    width: 400px;
+}
     .work__box p{
-    font-family: Roboto;
-font-weight: 400;
-font-size: 14px;
-line-height: 32px;
-letter-spacing: 0%;
-margin-bottom: 25px;
-width: 500px;
+width: 400px;
+text-align: center;
 }
     .work__box h2{
+        width: 450px;
+        text-align: center;
 margin-bottom: 50px;
 }
     .work__container{
