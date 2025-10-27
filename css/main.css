@@ -603,6 +603,166 @@ margin-bottom: 25px;
 .work__box button:hover{
     border-bottom: 1px solid #000000c9;
 }
+   /* Фоновый контейнер на весь экран — замените url на своё изображение */
+    .contact-bg {
+      min-height: 100vh;
+      background-image: url(../img/form.svg); /* <-- замените на своё изображение */
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 40px;
+    }
+
+    /* Внутренний блок с полупрозрачной подложкой (чтобы текст читался) */
+    .contact-inner {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; 
+      gap: 24px;
+    }
+
+    /* Общие стили для боксов */
+    .box {
+      background: rgba(0, 0, 0, 0.06);
+      border-radius: 12px;
+      padding: 20px;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Первый бокс — точно по размерам пользователя */
+    .box.left {
+      width: 550px;              /* указано пользователем */
+      height: 300px;             /* указано пользователем */
+      background: #000000;
+    }
+
+    .box.left .title h3 {
+      font-family: Liberation Serif;
+font-weight: 400;
+font-size: 55px;
+line-height: 80px;
+letter-spacing: 0%;
+text-align: center;
+
+    }
+
+    .box.left p.playlist {
+      font-family: Roboto;
+font-weight: 400;
+font-size: 16px;
+line-height: 28px;
+letter-spacing: 0%;
+text-align: center;
+
+    }
+
+    .play-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    /* Кнопка-плей */
+    .play-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #1DB954; /* Spotify-like зелёный; можно поменять */
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(29,185,84,0.28);
+      transition: transform .12s ease;
+    }
+    .play-btn:active { transform: scale(.98); }
+
+    /* Логотип Spotify — будет вращаться при воспроизведении */
+    .spotify-logo {
+      width: 36px;
+      height: 36px;
+      display: inline-block;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #fff url('spotify-placeholder.svg') center/60% no-repeat; /* placeholder */
+      /* по умолчанию неподвижный */
+      transition: box-shadow .2s ease;
+    }
+    .spotify-logo.playing {
+      animation: spin 1.8s linear infinite;
+      box-shadow: 0 0 18px rgba(29,185,84,0.9), 0 0 34px rgba(29,185,84,0.45);
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    /* Второй бокс: чёрный фон, чуть ниже (margin-top), размеры немного другие */
+    .box.right {
+      width: 450px;    /* чуть меньше чем у левого */
+      height: 200px;   /* чуть меньше высоты левого */
+      background: #000;
+      margin-top: 40px; /* смещение вниз относительно левого */
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .box.right .content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      opacity: 9;
+    }
+
+    .socials {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+    }
+    .socials a {
+      color: #fff;
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-weight: 400;
+      background: rgba(255,255,255,0.03);
+      transition: background .12s ease, transform .12s ease;
+    }
+    .socials a:hover { background: rgba(255,255,255,0.06); transform: translateY(-3px); }
+
+    /* Подпись/футер (пример, можно изменить) */
+    footer.site-footer {
+      width: 100%;
+      text-align: center;
+      color: #ddd;
+      margin-top: 28px;
+      font-size: 14px;
+    }
+
+    /* Адаптив */
+    @media (max-width: 1200px) {
+      .contact-inner { flex-direction: column; align-items: center; }
+      .box.left, .box.right { width: 100%; max-width: 700px; }
+      .box.right { margin-top: 20px; }
+    }
+
+
+
+
+
 /* Responsive */
 @media (max-width: 768px) {
     .work__box button{

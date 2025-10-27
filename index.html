@@ -149,7 +149,8 @@
                             <p class="testimonials__text-name">verified buyer</p>
                         </li>
                         <li class="testimonials__items">
-                            <h4>“I love the flavor of this apéritif — it’s light and lively, and it’s refreshing with seltzer or tonic.”</h4>
+                            <h4>“I love the flavor of this apéritif — it’s light and lively, and it’s refreshing with
+                                seltzer or tonic.”</h4>
                             <p class="testimonials__text">— Fiona</p>
                             <p class="testimonials__text-name">verified buyer</p>
                         </li>
@@ -166,15 +167,77 @@
     <section class="work">
         <div class="container">
             <div class="work__container">
-                   <img src="./img/work.svg" alt="">
+                <img src="./img/work.svg" alt="">
                 <div class="work__box">
                     <h2>We do things differently than most producers</h2>
-                    <p>Our flavors are derived from real fruits, herbs, and botanicals, not ingredients from a lab. We leave out the artificial ingredients and excess sugar, and tell you what’s inside. It’s a better way to drink.</p>
-                    <button >LEARN MORE</button>
+                    <p>Our flavors are derived from real fruits, herbs, and botanicals, not ingredients from a lab. We
+                        leave out the artificial ingredients and excess sugar, and tell you what’s inside. It’s a better
+                        way to drink.</p>
+                    <button>LEARN MORE</button>
                 </div>
             </div>
         </div>
     </section>
+    <div class="contact-bg">
+        <div class="container">
+            <div class="contact-inner" id="contact-root">
+                <!-- Левый бокс (плейлист) -->
+                <div class="box left" id="box-left">
+                    <div>
+                        <div class="title">
+                            <h3>Set the mood</h3>
+                        </div>
+                        <p class="playlist">Curated playlists from Woody + Helena, plus some of our friends and favorite
+                            brands.</p>
+                    </div>
+
+                    <div class="play-row">
+                        <button class="play-btn" id="playBtn" aria-pressed="false">
+                            <span class="spotify-logo" id="spotifyLogo" aria-hidden="true"></span>
+                            <span id="playBtnText">Play on Spotify</span>
+                        </button>
+                        <!-- небольшой индикатор статуса -->
+                        <div id="nowPlaying" style="opacity:.9;font-size:14px">Stopped</div>
+                    </div>
+                </div>
+
+                <!-- Правый бокс (контакты/ссылки) -->
+                <div class="box right" id="box-right">
+                    <div class="content">
+                        <div>
+                            <div style="font-size:20px;font-weight:600;margin-bottom:8px">Follow us,share us, drink us
+                                Ha(us)</div>
+                            <div style="opacity:.85"></div>
+
+                            <div class="socials" style="margin-top:16px">
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                    style="opacity:.85">Instagram</a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                                    style="opacity:.85">Twitter</a>
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                    style="opacity:.85">Facebook</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Пример футера (текст который вы просили) -->
+    <footer class="site-footer">
+        <!-- Я предложу ниже варианты текста для футера -->
+    </footer>
+
+    <!-- Аудио (замените src на свой mp3) -->
+    <audio id="bgAudio" preload="auto">
+        <source src="./music/bensound-happiness.mp3" type="audio/mpeg">
+        Тег audio не поддерживается вашим браузером.
+    </audio>
+
+
+
+
     <script src="./js/main.js"></script>
 </body>
 

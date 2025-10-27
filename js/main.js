@@ -40,3 +40,91 @@ navLinks.querySelectorAll("a").forEach(link => {
     }
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /**
+     * ContactContainer — класс с методом bam()
+     * bam() — переключает воспроизведение и анимацию.
+     */
+    class ContactContainer {
+      constructor(rootEl) {
+        this.root = rootEl;
+        this.playBtn = this.root.querySelector('#playBtn');
+        this.spotifyLogo = this.root.querySelector('#spotifyLogo');
+        this.nowPlaying = this.root.querySelector('#nowPlaying');
+        this.playBtnText = this.root.querySelector('#playBtnText');
+        this.audio = document.getElementById('bgAudio');
+
+        // bind
+        this.playBtn.addEventListener('click', () => this.bam());
+        // когда трек закончился — вернуть статус
+        this.audio.addEventListener('ended', () => this._onEnded());
+      }
+
+      bam() {
+        // если сейчас ставится на паузу -> воспроизвести, иначе поставить на паузу
+        if (this.audio.paused) {
+          this._play();
+        } else {
+          this._pause();
+        }
+      }
+
+      _play() {
+        // попытка воспроизвести
+        const playPromise = this.audio.play();
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            this.spotifyLogo.classList.add('playing');
+            this.playBtn.setAttribute('aria-pressed','true');
+            this.playBtnText.textContent = 'Pause';
+            this.nowPlaying.textContent = 'Playing — Jingle bells';
+          }).catch((err) => {
+            console.warn('Playback prevented:', err);
+            // если autoplay блокируется — попросим пользователя кликнуть ещё раз
+            this.nowPlaying.textContent = 'Click to allow playback';
+          });
+        } else {
+          // старые браузеры
+          this.spotifyLogo.classList.add('playing');
+          this.playBtn.setAttribute('aria-pressed','true');
+          this.playBtnText.textContent = 'Pause';
+          this.nowPlaying.textContent = 'Playing';
+        }
+      }
+
+      _pause() {
+        this.audio.pause();
+        this.spotifyLogo.classList.remove('playing');
+        this.playBtn.setAttribute('aria-pressed','false');
+        this.playBtnText.textContent = 'Play on Spotify';
+        this.nowPlaying.textContent = 'Paused';
+      }
+
+      _onEnded() {
+        // вернуть в исходное состояние
+        this.spotifyLogo.classList.remove('playing');
+        this.playBtn.setAttribute('aria-pressed','false');
+        this.playBtnText.textContent = 'Play on Spotify';
+        this.nowPlaying.textContent = 'Stopped';
+      }
+    }
+
+    // Инициализация:
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = new ContactContainer(document.getElementById('contact-root'));
+
+      // Можно получить ссылку на экземпляр, если нужно из консоли:
+      window.contactContainer = container;
+    });
