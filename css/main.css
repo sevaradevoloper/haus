@@ -1,14 +1,10 @@
 * {
-    margin     : 0;
-    padding    : 0;
-    box-sizing : border-box;
-    font-family: "Poppins", sans-serif;
-       list-style: none;
-}
-
-body {
-    background: #000;
-    color     : #fff;
+    margin         : 0;
+    padding        : 0;
+    box-sizing     : border-box;
+    font-family    : "Poppins", sans-serif;
+    list-style     : none;
+    text-decoration: none;
 }
 
 .container {
@@ -48,21 +44,26 @@ body {
 }
 
 .header__links {
-    display : flex;
-    list-style: none;
-    gap : 35px;
+    display        : flex;
+    list-style     : none;
+    gap            : 35px;
     /* Linklar soni ko'payganligi sababli, logoni markazda ushlab turish uchun */
-    flex-grow: 1; 
-    justify-content: space-between; 
-    align-items: center;
+    flex-grow      : 1;
+    justify-content: space-between;
+    align-items    : center;
 }
 
 .header__links a {
-    color          : #fff;
-    text-decoration: none;
-    font-size      : 16px;
-    position       : relative;
-    transition     : color 0.4s ease;
+    color         : #fff;
+    position      : relative;
+    transition    : color 0.4s ease;
+    font-family   : Roboto;
+    font-weight   : 400;
+    font-size     : 12px;
+    line-height   : 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
 }
 
 .header__links a::after {
@@ -123,27 +124,44 @@ body {
 }
 
 .hero__content h1 {
-    font-size    : 52px;
-    margin-bottom: 20px;
+    margin-bottom : 20px;
+    font-family   : Liberation Serif;
+    font-weight   : 400;
+    font-size     : 73px;
+    line-height   : 96px;
+    letter-spacing: 0%;
+    max-width     : 600px;
+
 }
 
 .hero__content p {
-    font-size    : 18px;
-    line-height  : 1.6;
-    margin-bottom: 30px;
-    max-width    : 500px;
+    margin-bottom : 30px;
+    max-width     : 500px;
+    font-family   : Roboto;
+    font-weight   : 400;
+    font-size     : 18px;
+    line-height   : 32px;
+    letter-spacing: 0%;
+
 }
 
 .hero__btn {
-    border    : 1px solid #f6f6f6;
-    background: transparent;
-    color     : #fff;
-    padding   : 15px 45px;
-    font-size : 16px;
-    cursor    : pointer;
-    position  : relative;
-    overflow  : hidden;
-    transition: all 0.4s ease;
+    border        : 1px solid #f6f6f6;
+    background    : transparent;
+    color         : #000000;
+    padding       : 25px 40px;
+    font-family   : Roboto;
+    font-weight   : 400;
+    font-size     : 16px;
+    line-height   : 14px;
+    letter-spacing: 1px;
+    text-align    : center;
+    cursor        : pointer;
+    position      : relative;
+    overflow      : hidden;
+    transition    : all 0.4s ease;
+    max-width     : 180px;
+    height        : 50px;
 }
 
 .hero__btn::before {
@@ -187,7 +205,7 @@ body {
     position : absolute;
     bottom   : 25px;
     left     : 50%;
-    right: 37%;
+    right    : 37%;
     transform: translateX(-50%);
     display  : flex;
     gap      : 8px;
@@ -223,60 +241,142 @@ body {
     transition   : all 0.3s ease;
 }
 
+
+.article {
+    padding   : 50px;
+    background: #fff;
+}
+
+.article__list {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+}
+
+.article__items p {
+    font-family   : Roboto;
+    font-weight   : 400;
+    font-size     : 18px;
+    line-height   : 32px;
+    letter-spacing: 0%;
+    text-align    : center;
+    margin-bottom: 15px;
+}
+.article__title-one {
+    font-size: 35px;
+    text-align    : center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.article__title-two {
+    font-size: 35px;
+    text-align    : center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.article__title-three {
+    font-size: 35px;
+    text-align    : center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.article h2{
+     position      : relative;
+    transition    : color 0.4s ease;
+}
+.article h2{
+     position      : relative;
+    transition    : color 0.4s ease;
+}
+.article h2::after {
+    content   : "";
+    position  : absolute;
+    bottom    : -5px;
+    left      : 0;
+    width     : 0%;
+    height    : 2px;
+    background: linear-gradient(90deg, #ff8c00, #fff);
+    transition: width 0.4s ease;
+}
+
+.article h2:hover {
+    color: #996b60;
+}
+
+.article h2:hover::after {
+    width: 100%;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
- /* Linklarni standart rejimda yashirish */
+.article__list {
+    display        : flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: space-between;
+    align-items    : center;
+}
+.article__items p {
+    font-family   : Roboto;
+    font-weight   : 400;
+    font-size     : 18px;
+    line-height   : 32px;
+    letter-spacing: 0%;
+    text-align    : center;
+    margin-bottom: 15px;
+    max-width: 300px;
+}
+.article__items{
+    border-top: 1px solid #c9a375;
+    border-left: 2px solid #c9a375;
+    border-right: 2px solid #c9a375;
+    padding: 50px 25px;
+}
     .header__links {
         display: none;
     }
+
     .header__burger {
         display: flex;
-        z-index: 1000; 
+        z-index: 1000;
     }
-    
-    /* **YANGILANGAN QOIDALAR** */
+
+  
     .header__links.menu-open {
-        display : flex;
-        flex-direction: column;
-        /* Barcha linklarni ko'rsatish uchun flex-direction: column */
-        position : fixed; /* Absolute emas, endi fixed foydalanamiz */
-        top : 0;
-        right : 0;
-        width : 70%; /* Mobil menyu kengligi */
-        height : 100vh;
-        background : rgba(0, 0, 0, 0.733); /* Qora fon */
-        backdrop-filter: blur(5px);
-        padding : 80px 40px 20px; /* Yuqoridan joy qoldirish */
-        gap: 10px;
-        z-index: 999;
-        /* Menyuni ekrandan tashqaridan kirib kelish effekti */
-        transform: translateX(0%); 
-        transition: transform 0.3s ease-out;
+        display                                            : flex;
+        flex-direction                                     : column;
         
+        position                                           : fixed;
+        top                                                : 0;
+        right                                              : 0;
+        width                                              : 70%;
+        height                                             : 100vh;
+        background                                         : rgba(0, 0, 0, 0.733);
+        backdrop-filter                                    : blur(5px);
+        padding                                            : 80px 40px 20px;
+        gap                                                : 10px;
+        z-index                                            : 999;
+        transform                                          : translateX(0%);
+        transition                                         : transform 0.3s ease-out;
+
     }
-    
-    /* Agar menyu yopiq bo'lsa, uni ekrandan tashqariga surish */
     .header__links:not(.menu-open) {
         transform: translateX(100%);
     }
 
-    .hero { 
-        flex-direction: column-reverse; 
+    .hero {
+        flex-direction: column-reverse;
     }
-    .hero__image { 
-        width : 100%; 
-        height: 50vh; 
+
+    .hero__image {
+        width : 100%;
+        height: 50vh;
     }
-    .hero__content { 
-        width : 100%; 
-        height : 50vh; 
-        align-items: center; 
-        text-align : center; 
-        padding : 40px; 
-        margin-top : 50px; 
+
+    .hero__content {
+        width      : 100%;
+        height     : 50vh;
+        align-items: center;
+        text-align : center;
+        padding    : 40px;
+        margin-top : 50px;
     }
-    
+
 }
-
-
-

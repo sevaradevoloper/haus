@@ -9,9 +9,9 @@ window.addEventListener("scroll", () => {
 const heroImage = document.getElementById("heroImage");
 const bars = document.querySelectorAll(".bar");
 const images = [
-  "./img/boka.svg",
   "./img/hero.svg",
-  "./img/hero.svg"
+  "./img/form.svg",
+  "./img/boka.svg"
 ];
 let index = 0;
 setInterval(() => {
