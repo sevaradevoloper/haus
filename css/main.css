@@ -915,8 +915,6 @@ html {
     border-radius: 50%;
     overflow     : hidden;
     background   : #fff url('spotify-placeholder.svg') center/60% no-repeat;
-    /* placeholder */
-    /* по умолчанию неподвижный */
     transition   : box-shadow .2s ease;
 }
 
@@ -1431,9 +1429,24 @@ html {
         justify-content: flex-end;
     }
 
+    .play-row {
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+        gap            : 14px;
+        margin-bottom  : 50px;
+    }
+
+    .box.left {
+        width     : 500px;
+        /* указано пользователем */
+        height    : 350px;
+        /* указано пользователем */
+        background: #000000;
+    }
+
     .work__box button {
-        display: block;
-        margin : 0 auto;
+        margin-left: 50px;
     }
 
     .work__container img {
@@ -1512,6 +1525,11 @@ html {
         flex-direction : column;
         justify-content: space-between;
         align-items    : center;
+    }
+
+    .product__items img {
+        width : 350px;
+        height: 400px;
     }
 
     .product__list {
