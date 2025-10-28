@@ -41,6 +41,7 @@ html {
     width     : 100%;
     z-index   : 999;
     transition: 0.3s ease;
+    margin-bottom: 50px;
 }
 
 .header__nav {
@@ -1582,7 +1583,9 @@ html {
         display: flex;
         z-index: 1000;
     }
-
+.header{
+    padding: 20px 0;
+}
 
     .header__links.menu-open {
         display        : flex;
