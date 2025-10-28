@@ -993,6 +993,33 @@ text-align: center;
 
 /* Responsive */
 @media (max-width: 768px) {
+    .lastest__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 13px;
+    color: #777777;
+}
+    .footer__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    border-bottom: 1px solid var(--line-color);
+    padding-bottom: 50px;
+    margin-bottom: 30px;
+}
+    .footer__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 60px;
+    justify-content: flex-end;
+}
     .work__box button{
         display: block;
         margin: 0 auto;
