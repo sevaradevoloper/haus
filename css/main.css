@@ -7,6 +7,12 @@
     text-decoration: none;
 }
 
+html {
+    /* Bu xossa avtomatik tarzda barcha sahifa ichidagi bog'lanmalarni (linklar)
+       silliq siljitishini ta'minlaydi. */
+    scroll-behavior: smooth;
+}
+
 .container {
     max-width: 1200px;
     margin   : 0 auto;
@@ -144,42 +150,53 @@
 }
 
 .hero__btn {
-    border        : 1px solid #f6f6f6;
-    background    : transparent;
-    color         : #000000;
-    padding       : 25px 40px;
-    font-family   : Roboto;
-    font-weight   : 400;
-    font-size     : 16px;
-    line-height   : 14px;
-    letter-spacing: 1px;
-    text-align    : center;
-    cursor        : pointer;
-    position      : relative;
-    overflow      : hidden;
-    transition    : all 0.4s ease;
-    max-width     : 180px;
-    height        : 50px;
+    --color      : #996b60;
+    font-family  : inherit;
+    display      : inline-block;
+    width        : 8em;
+    height       : 2.6em;
+    line-height  : 2.5em;
+    margin       : 20px;
+    position     : relative;
+    cursor       : pointer;
+    overflow     : hidden;
+    border       : 2px solid #814536;
+    transition   : color 0.5s;
+    z-index      : 1;
+    font-size    : 17px;
+    border-radius: 6px;
+    font-weight  : 600;
+    color        : var(--color);
 }
 
-.hero__btn::before {
-    content   : "";
-    position  : absolute;
-    top       : 0;
-    left      : -100%;
-    width     : 100%;
-    height    : 100%;
-    background: rgba(255, 255, 255, 0.3);
-    transition: all 0.4s ease;
-}
-
-.hero__btn:hover::before {
-    left: 0;
+.hero__btn:before {
+    content      : "";
+    position     : absolute;
+    z-index      : -1;
+    background   : #a56e61;
+    height       : 150px;
+    width        : 200px;
+    border-radius: 50%;
 }
 
 .hero__btn:hover {
-    background: #f08e70;
-    color     : #000;
+    color: #fff;
+}
+
+.hero__btn:before {
+    top       : 100%;
+    left      : 100%;
+    transition: all 0.7s;
+}
+
+.hero__btn:hover:before {
+    top : -30px;
+    left: -30px;
+}
+
+.hero__btn:active:before {
+    background: #b17769;
+    transition: background 0s;
 }
 
 /* Bars */
@@ -379,6 +396,100 @@
     transition: 0.7s ease-in;
 }
 
+.product__btn {
+    position        : absolute;
+    top             : 30px;
+    right           : 0;
+    color           : #fff;
+    border-radius   : 100%;
+    font-size       : larger;
+    font-weight     : bold;
+    border-radius   : 2rem;
+    cursor          : pointer;
+    width           : 150px;
+    height          : 50px;
+    border          : none;
+    background-color: #000000;
+    display         : flex;
+    justify-content : center;
+    align-items     : center;
+}
+
+.product__btn .span-mother {
+    display : flex;
+    overflow: hidden;
+}
+
+.product__btn:hover .span-mother {
+    position: absolute;
+}
+
+.product__btn:hover .span-mother span {
+    transform: translateY(1.2em);
+}
+
+.product__btn .span-mother span:nth-child(1) {
+    transition: 0.2s;
+}
+
+.product__btn .span-mother span:nth-child(2) {
+    transition: 0.3s;
+}
+
+.product__btn .span-mother span:nth-child(3) {
+    transition: 0.4s;
+}
+
+.product__btn .span-mother span:nth-child(4) {
+    transition: 0.5s;
+}
+
+.product__btn .span-mother span:nth-child(5) {
+    transition: 0.6s;
+}
+
+.product__btn .span-mother span:nth-child(6) {
+    transition: 0.7s;
+}
+
+.product__btn .span-mother2 {
+    display : flex;
+    position: absolute;
+    overflow: hidden;
+}
+
+.product__btn .span-mother2 span {
+    transform: translateY(-1.2em);
+}
+
+.product__btn:hover .span-mother2 span {
+    transform: translateY(0);
+}
+
+.product__btn .span-mother2 span {
+    transition: 0.2s;
+}
+
+.product__btn .span-mother2 span:nth-child(2) {
+    transition: 0.3s;
+}
+
+.product__btn .span-mother2 span:nth-child(3) {
+    transition: 0.4s;
+}
+
+.product__btn .span-mother2 span:nth-child(4) {
+    transition: 0.5s;
+}
+
+.product__btn .span-mother2 span:nth-child(5) {
+    transition: 0.6s;
+}
+
+.product__btn .span-mother2 span:nth-child(6) {
+    transition: 0.7s;
+}
+
 .button {
     display         : block;
     margin          : 0 auto;
@@ -564,219 +675,471 @@
     text-transform: capitalize;
     color         : #8A8A8A;
 }
-.work{
+
+.work {
     padding: 50px;
 }
-.work__container{
-    display: flex;
+
+.work__container {
+    display        : flex;
     justify-content: space-between;
-    align-items: center;
+    align-items    : center;
 }
-.work__box{
+
+.work__box {
     padding-left: 50px;
 }
-.work__container img{
+
+.work__container img {
     width: 550px;
 }
-.work__box h2{
-   font-family: Liberation Serif;
-font-weight: 400;
-font-size: 54px;
-line-height: 80px;
-letter-spacing: 0%;
-width: 600px;
-margin-bottom: 150px;
+
+.work__box h2 {
+    font-family   : Liberation Serif;
+    font-weight   : 400;
+    font-size     : 54px;
+    line-height   : 80px;
+    letter-spacing: 0%;
+    width         : 600px;
+    margin-bottom : 150px;
 }
-.work__box p{
-    font-family: Roboto;
-font-weight: 400;
-font-size: 18px;
-line-height: 32px;
-letter-spacing: 0%;
-margin-bottom: 25px;
+
+.work__box p {
+    font-family   : Roboto;
+    font-weight   : 400;
+    font-size     : 18px;
+    line-height   : 32px;
+    letter-spacing: 0%;
+    margin-bottom : 25px;
 }
-.work__box button{
+
+
+/* Asosiy tugma stili */
+.work__box button {
+    position       : relative;
+    display        : inline-block;
+    cursor         : pointer;
+    outline        : none;
+    border         : 0;
+    vertical-align : middle;
+    text-decoration: none;
+    background     : transparent;
+    padding        : 0;
+    font-size      : inherit;
+    font-family    : inherit;
+}
+
+.work__box button.learn-more {
+    width : 12rem;
+    height: auto;
+}
+
+/* Aylanuvchi doira */
+.work__box button.learn-more .circle {
+    transition   : all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position     : relative;
+    display      : block;
+    margin       : 0;
+    width        : 3rem;
+    height       : 3rem;
+    background   : #000000;
+    border-radius: 1.625rem;
+}
+
+/* Ikonka stili */
+.work__box button.learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position  : absolute;
+    top       : 0;
+    bottom    : 0;
+    margin    : auto;
+    background: #fff;
+}
+
+/* O'q stili */
+.work__box button.learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left      : 0.625rem;
+    width     : 1.125rem;
+    height    : 0.125rem;
     background: none;
-    border: none;
-    cursor: pointer;
-}
-.work__box button:hover{
-    border-bottom: 1px solid #000000c9;
-}
-   /* Фоновый контейнер на весь экран — замените url на своё изображение */
-    .contact-bg {
-      min-height: 100vh;
-      background-image: url(../img/form.svg); /* <-- замените на своё изображение */
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      padding: 40px;
-    }
-
-    /* Внутренний блок с полупрозрачной подложкой (чтобы текст читался) */
-    .contact-inner {
-      width: 100%;
-      max-width: 1200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center; 
-      gap: 24px;
-    }
-
-    /* Общие стили для боксов */
-    .box {
-      background: rgba(0, 0, 0, 0.06);
-      border-radius: 12px;
-      padding: 20px;
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* Первый бокс — точно по размерам пользователя */
-    .box.left {
-      width: 550px;              /* указано пользователем */
-      height: 300px;             /* указано пользователем */
-      background: #000000;
-    }
-
-    .box.left .title h3 {
-      font-family: Liberation Serif;
-font-weight: 400;
-font-size: 55px;
-line-height: 80px;
-letter-spacing: 0%;
-text-align: center;
-
-    }
-
-    .box.left p.playlist {
-      font-family: Roboto;
-font-weight: 400;
-font-size: 16px;
-line-height: 28px;
-letter-spacing: 0%;
-text-align: center;
-
-    }
-
-    .play-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-    }
-
-    /* Кнопка-плей */
-    .play-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: #1DB954; /* Spotify-like зелёный; можно поменять */
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-weight: 600;
-      box-shadow: 0 6px 18px rgba(29,185,84,0.28);
-      transition: transform .12s ease;
-    }
-    .play-btn:active { transform: scale(.98); }
-
-    /* Логотип Spotify — будет вращаться при воспроизведении */
-    .spotify-logo {
-      width: 36px;
-      height: 36px;
-      display: inline-block;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #fff url('spotify-placeholder.svg') center/60% no-repeat; /* placeholder */
-      /* по умолчанию неподвижный */
-      transition: box-shadow .2s ease;
-    }
-    .spotify-logo.playing {
-      animation: spin 1.8s linear infinite;
-      box-shadow: 0 0 18px rgba(29,185,84,0.9), 0 0 34px rgba(29,185,84,0.45);
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-
-    /* Второй бокс: чёрный фон, чуть ниже (margin-top), размеры немного другие */
-    .box.right {
-      width: 450px;    /* чуть меньше чем у левого */
-      height: 200px;   /* чуть меньше высоты левого */
-      background: #000;
-      margin-top: 40px; /* смещение вниз относительно левого */
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .box.right .content {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      opacity: 9;
-    }
-
-    .socials {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: center;
-      margin-top: 12px;
-    }
-    .socials a {
-      color: #fff;
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-weight: 400;
-      background: rgba(255,255,255,0.03);
-      transition: background .12s ease, transform .12s ease;
-    }
-    .socials a:hover { background: rgba(255,255,255,0.06); transform: translateY(-3px); }
-
-
-.footer{
-    padding: 50px;
-    background: #000000;
-    color: #ffffff;
 }
 
-.footer__container{
-    display: flex;
-    align-items: center;
+/* O'q uchidagi uchburchak */
+.work__box button.learn-more .circle .icon.arrow::before {
+    position    : absolute;
+    content     : "";
+    top         : -0.29rem;
+    right       : 0.0625rem;
+    width       : 0.625rem;
+    height      : 0.625rem;
+    border-top  : 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform   : rotate(45deg);
+}
+
+/* Button matni stili */
+/* BU QISM TUZATILDI: ".work__box" takrorlanishi olib tashlandi */
+.work__box button.learn-more .button-text {
+    transition    : all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position      : absolute;
+    top           : 0;
+    left          : 0;
+    right         : 0;
+    bottom        : 0;
+    padding       : 0.75rem 0;
+    margin        : 0 0 0 1.85rem;
+    color         : #000000;
+    font-weight   : 700;
+    line-height   : 1.6;
+    text-align    : center;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------- */
+/* HOVER EFFEKTLARI */
+/* ---------------------------------- */
+
+/* 1. Tugma ustiga borganda doira kengayishi */
+.work__box button:hover .circle {
+    width: 100%;
+}
+
+/* 2. Tugma ustiga borganda o'q siljishi va fonga ega bo'lishi */
+.work__box button:hover .circle .icon.arrow {
+    background: #fff;
+    transform : translate(1rem, 0);
+}
+
+/* 3. Tugma ustiga borganda matn rangining o'zgarishi */
+/* BU QISM TUZATILDI: ".work__box" takrorlanishi olib tashlandi */
+.work__box button:hover .button-text {
+    color: #fff;
+}
+
+/* Фоновый контейнер на весь экран — замените url на своё изображение */
+.contact-bg {
+    min-height         : 100vh;
+    background-image   : url(../img/form.svg);
+    /* <-- замените на своё изображение */
+    background-position: center;
+    background-size    : cover;
+    background-repeat  : no-repeat;
+    padding            : 40px;
+}
+
+/* Внутренний блок с полупрозрачной подложкой (чтобы текст читался) */
+.contact-inner {
+    width          : 100%;
+    max-width      : 1200px;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    gap            : 24px;
+}
+
+/* Общие стили для боксов */
+.box {
+    background     : rgba(0, 0, 0, 0.06);
+    border-radius  : 12px;
+    padding        : 20px;
+    color          : #fff;
+    box-shadow     : 0 8px 24px rgba(0, 0, 0, 0.5);
+    display        : flex;
+    flex-direction : column;
     justify-content: space-between;
 }
-.footer__list{
+
+/* Первый бокс — точно по размерам пользователя */
+.box.left {
+    width     : 550px;
+    /* указано пользователем */
+    height    : 300px;
+    /* указано пользователем */
+    background: #000000;
+}
+
+.box.left .title h3 {
+    font-family   : Liberation Serif;
+    font-weight   : 400;
+    font-size     : 55px;
+    line-height   : 80px;
+    letter-spacing: 0%;
+    text-align    : center;
+
+}
+
+.box.left p.playlist {
+    font-family   : Roboto;
+    font-weight   : 400;
+    font-size     : 16px;
+    line-height   : 28px;
+    letter-spacing: 0%;
+    text-align    : center;
+
+}
+
+.play-row {
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    gap            : 14px;
+}
+
+/* Кнопка-плей */
+.play-btn {
+    display      : inline-flex;
+    align-items  : center;
+    gap          : 10px;
+    padding      : 10px 16px;
+    border-radius: 999px;
+    background   : #1DB954;
+    /* Spotify-like зелёный; можно поменять */
+    color        : #fff;
+    border       : none;
+    cursor       : pointer;
+    font-weight  : 600;
+    box-shadow   : 0 6px 18px rgba(29, 185, 84, 0.28);
+    transition   : transform .12s ease;
+}
+
+.play-btn:active {
+    transform: scale(.98);
+}
+
+/* Логотип Spotify — будет вращаться при воспроизведении */
+.spotify-logo {
+    width        : 36px;
+    height       : 36px;
+    display      : inline-block;
+    border-radius: 50%;
+    overflow     : hidden;
+    background   : #fff url('spotify-placeholder.svg') center/60% no-repeat;
+    /* placeholder */
+    /* по умолчанию неподвижный */
+    transition   : box-shadow .2s ease;
+}
+
+.spotify-logo.playing {
+    animation : spin 1.8s linear infinite;
+    box-shadow: 0 0 18px rgba(29, 185, 84, 0.9), 0 0 34px rgba(29, 185, 84, 0.45);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Второй бокс: чёрный фон, чуть ниже (margin-top), размеры немного другие */
+.box.right {
+    width     : 450px;
+    /* чуть меньше чем у левого */
+    height    : 200px;
+    /* чуть меньше высоты левого */
+    background: #000;
+    margin-top: 40px;
+    /* смещение вниз относительно левого */
+    border    : 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.box.right .content {
+    flex           : 1;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    font-size      : 22px;
+    opacity        : 9;
+}
+
+.socials {
+    display        : flex;
+    gap            : 12px;
+    align-items    : center;
+    justify-content: center;
+    margin-top     : 12px;
+}
+
+.socials a {
+    color          : #fff;
+    text-decoration: none;
+    padding        : 6px 10px;
+    border-radius  : 8px;
+    font-weight    : 400;
+    background     : rgba(255, 255, 255, 0.03);
+    transition     : background .12s ease, transform .12s ease;
+}
+
+.socials a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform : translateY(-3px);
+}
+
+.wrapper {
+    display        : inline-flex;
+    list-style     : none;
+    height         : 120px;
+    width          : 100%;
+    padding-top    : 40px;
+    font-family    : "Poppins", sans-serif;
+    justify-content: center;
+}
+
+.wrapper .icon {
+    position       : relative;
+    background     : #fff;
+    border-radius  : 50%;
+    margin         : 10px;
+    width          : 50px;
+    height         : 50px;
+    font-size      : 18px;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
+    box-shadow     : 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor         : pointer;
+    transition     : all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* 1. IKONKALARNING DASTLABKI RANGI QORA BO'LISHI UCHUN */
+.wrapper .icon svg {
+    /* SVG ning fill rangini o'rnatish */
+    fill      : #000000;
+    transition: fill 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+    position      : absolute;
+    top           : 0;
+    font-size     : 14px;
+    background    : #fff;
+    color         : #fff;
+    /* Hoverda o'zgaradi */
+    padding       : 5px 8px;
+    border-radius : 5px;
+    box-shadow    : 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity       : 0;
+    pointer-events: none;
+    transition    : all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+    position  : absolute;
+    content   : "";
+    height    : 8px;
+    width     : 8px;
+    background: #fff;
+    /* Hoverda o'zgaradi */
+    bottom    : -3px;
+    left      : 50%;
+    transform : translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+    top           : -45px;
+    opacity       : 1;
+    visibility    : visible;
+    pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover holatida ikonka rangi va fon rangi */
+.wrapper .facebook:hover {
+    background: #1877f2;
+}
+
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+    background: #1877f2;
+    color     : #fff;
+}
+
+.wrapper .facebook:hover svg {
+    fill: #fff;
+    /* Hoverda ikonka rangi oq bo'ladi */
+}
+
+.wrapper .twitter:hover {
+    background: #1da1f2;
+}
+
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+    background: #1da1f2;
+    color     : #fff;
+}
+
+.wrapper .twitter:hover svg {
+    fill: #fff;
+    /* Hoverda ikonka rangi oq bo'ladi */
+}
+
+.wrapper .instagram:hover {
+    background: #e4405f;
+}
+
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+    background: #e4405f;
+    color     : #fff;
+}
+
+.wrapper .instagram:hover svg {
+    fill: #fff;
+    /* Hoverda ikonka rangi oq bo'ladi */
+}
+
+
+.footer {
+    padding   : 50px;
+    background: #000000;
+    color     : #ffffff;
+}
+
+.footer__container {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+}
+
+.footer__list {
     display: flex;
 }
-.footer__items{
+
+.footer__items {
     flex-direction: column;
 }
+
 /*
  * --------------------------------
  * GLOBAL O'ZGARUVCHILAR VA ASOSIY STIL
  * --------------------------------
  */
 :root {
-    --primary-color: #ffffff; /* Oq */
-    --accent-color: #ff4500; /* To'q sariq (Orange Red) — effektlar uchun */
-    --line-color: #444444; /* Pastki chiziq rangi */
-    --transition-speed: 0.35s; /* Animatsiya silliqligi */
+    --primary-color   : #ffffff;
+    /* Oq */
+    --accent-color    : #ff4500;
+    /* To'q sariq (Orange Red) — effektlar uchun */
+    --line-color      : #444444;
+    /* Pastki chiziq rangi */
+    --transition-speed: 0.35s;
+    /* Animatsiya silliqligi */
 }
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    margin   : 0 auto;
+    padding  : 0 20px;
 }
 
 /*
@@ -785,19 +1148,19 @@ text-align: center;
  * --------------------------------
  */
 .footer {
-    padding: 80px 0;
+    padding   : 80px 0;
     background: #000000;
-    color: var(--primary-color);
-    font-size: 14px;
+    color     : var(--primary-color);
+    font-size : 14px;
 }
 
 .footer__container {
-    display: flex;
+    display        : flex;
     justify-content: space-between;
-    gap: 40px;
-    border-bottom: 1px solid var(--line-color);
-    padding-bottom: 50px;
-    margin-bottom: 30px;
+    gap            : 40px;
+    border-bottom  : 1px solid var(--line-color);
+    padding-bottom : 50px;
+    margin-bottom  : 30px;
 }
 
 /*
@@ -806,91 +1169,123 @@ text-align: center;
  * --------------------------------
  */
 .footer__box {
-    flex: 1;
+    flex     : 1;
     max-width: 400px;
 }
 
 .footer__box h4 {
-    font-size: 24px;
+    font-size    : 24px;
     margin-bottom: 10px;
 }
 
 /* Forma konteyneri: Input va button yonma-yon, pastda chiziq */
-.footer__box form {
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    border-bottom: 2px solid var(--line-color); 
-    padding-bottom: 5px; 
-    transition: border-bottom-color var(--transition-speed) ease;
+
+
+.input-wrapper {
+    margin-top      : 30px;
+    width           : fit-content;
+    height          : 45px;
+    border-radius   : 20px;
+    padding         : 5px;
+    box-sizing      : content-box;
+    display         : flex;
+    align-items     : center;
+    background-color: #0c0c0c;
 }
 
-/* Fokus bo'lganda pastki chiziq rangi o'zgarishi */
-.footer__box form:focus-within {
-    border-bottom-color: var(--accent-color); 
+.icon {
+    width      : 30px;
+    fill       : rgb(255, 255, 255);
+    margin-left: 8px;
+    transition : all 0.3s;
 }
 
-/* Label (Enter your email) - Dastlab pastda turadi */
-.footer__box label {
-    position: absolute;
-    top: 50%; 
-    left: 0;
-    transform: translateY(-50%);
-    color: #777777;
-    pointer-events: none;
-    transition: all var(--transition-speed) cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    z-index: 2;
+.input {
+    max-width       : 170px;
+    height          : 100%;
+    border          : none;
+    outline         : none;
+    padding-left    : 15px;
+    background-color: #0c0c0c;
+    color           : white;
+    font-size       : 1em;
 }
 
-/* INPUTGA FOKUS BO'LGANDA LABEL YUQORIGA CHIQISHI */
-.footer__box input:focus + label,
-.footer__box input:not(:placeholder-shown) + label {
-    top: -20px; /* Balandga chiqarish */
-    font-size: 11px;
-    color: var(--primary-color);
+.input:-webkit-autofill {
+    -webkit-box-shadow     : 0 0 0px 1000px #292524 inset;
+    -webkit-text-fill-color: #ffffff;
 }
 
-/* Input stili - backgroundsiz, chegarasiz */
-.footer__box input[type="email"] {
-    flex-grow: 1; 
-    padding: 10px 0;
-    border: none;
-    background: transparent;
-    color: var(--primary-color);
-    outline: none; 
-    font-size: 16px;
-    z-index: 1;
+.Subscribe-btn {
+    height          : 100%;
+    width           : 95px;
+    border          : none;
+    border-radius   : 15px;
+    color           : rgb(0, 0, 0);
+    cursor          : pointer;
+    background-color: #ffffff;
+    font-weight     : 500;
+    overflow        : hidden;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+    position        : relative;
+    transition      : all 0.3s;
 }
 
-/* SUBMIT tugmasi - Dastlab yashirin va surilgan holatda */
-.footer__box button[type="submit"] {
-    background: none;
-    border: none;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px 0;
-    cursor: pointer;
-    transition: all var(--transition-speed) ease;
-    opacity: 0; /* Yashirish */
-    transform: translateX(10px); /* Surish */
-    pointer-events: none;
+.arrow {
+    /* display: none; */
+    position    : absolute;
+    margin-right: 150px;
+    transition  : all 0.3s;
 }
 
-/* Input aktivlashganda tugma ko'rinishi */
-.footer__box input:focus ~ button[type="submit"],
-.footer__box input:not(:placeholder-shown) ~ button[type="submit"] {
-    opacity: 1; /* Ko'rinish */
-    transform: translateX(0); /* Joyiga qaytish */
-    pointer-events: auto;
+.input-wrapper:active .icon {
+    transform: scale(1.3);
 }
 
-.footer__box button[type="submit"]:hover {
-    color: var(--accent-color);
+.Subscribe-btn:hover {
+    color: white;
+}
+
+.Subscribe-btn:hover .arrow {
+    margin-right    : 0;
+    animation       : jello-vertical 0.9s both;
+    transform-origin: right;
+}
+
+@keyframes jello-vertical {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    30% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+
+    40% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+
+    50% {
+        transform: scale3d(0.85, 1.15, 1);
+    }
+
+    65% {
+        transform: scale3d(1.05, 0.95, 1);
+    }
+
+    75% {
+        transform: scale3d(0.95, 1.05, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.Subscribe-btn:active {
+    transform: scale(0.9);
 }
 
 /*
@@ -903,53 +1298,55 @@ text-align: center;
 }
 
 .footer__list {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 60px;
+    display        : flex;
+    list-style     : none;
+    padding        : 0;
+    margin         : 0;
+    gap            : 60px;
     justify-content: flex-end;
 }
 
 .footer__items {
-    display: flex;
+    display       : flex;
     flex-direction: column;
 }
 
 .footer__items h6 {
-    font-size: 14px;
-    margin-bottom: 15px;
-    font-weight: bold;
+    font-size     : 14px;
+    margin-bottom : 15px;
+    font-weight   : bold;
     text-transform: uppercase;
-    color: var(--primary-color);
+    color         : var(--primary-color);
 }
 
 .footer__items a {
-    color: #aaaaaa;
+    color          : #aaaaaa;
     text-decoration: none;
-    margin-bottom: 8px;
-    transition: color var(--transition-speed), transform var(--transition-speed);
-    display: inline-block; 
-    position: relative; /* Before elementi uchun */
+    margin-bottom  : 8px;
+    transition     : color var(--transition-speed), transform var(--transition-speed);
+    display        : inline-block;
+    position       : relative;
+    /* Before elementi uchun */
 }
 
 /* Linklar Hover Effekti: Rang, Siljish va Chiziq */
 .footer__items a:hover {
-    color: var(--accent-color); 
-    transform: translateX(5px); /* Siljish effektini kuchaytirish */
+    color    : var(--accent-color);
+    transform: translateX(5px);
+    /* Siljish effektini kuchaytirish */
 }
 
 .footer__items a:hover::before {
-    content: '';
-    position: absolute;
-    left: -10px; 
-    top: 50%;
-    transform: translateY(-50%);
-    width: 5px;
-    height: 2px;
+    content         : '';
+    position        : absolute;
+    left            : -10px;
+    top             : 50%;
+    transform       : translateY(-50%);
+    width           : 5px;
+    height          : 2px;
     background-color: var(--accent-color);
-    opacity: 1;
-    transition: opacity var(--transition-speed);
+    opacity         : 1;
+    transition      : opacity var(--transition-speed);
 }
 
 /*
@@ -962,30 +1359,41 @@ text-align: center;
 }
 
 .lastest__container {
-    display: flex;
+    display        : flex;
     justify-content: center;
-    align-items: center;
-    gap: 20px;
-    font-size: 13px;
-    color: #777777;
+    align-items    : center;
+    gap            : 20px;
+    font-size      : 13px;
+    color          : #777777;
 }
 
 .lastest__container a {
-    color: #777777;
+    color          : #777777;
     text-decoration: none;
-    transition: color var(--transition-speed);
+    transition     : color var(--transition-speed);
 }
 
 .lastest__container a:hover {
     color: var(--primary-color);
 }
 
-    /* Адаптив */
-    @media (max-width: 1200px) {
-      .contact-inner { flex-direction: column; align-items: center; }
-      .box.left, .box.right { width: 100%; max-width: 700px; }
-      .box.right { margin-top: 20px; }
+/* Адаптив */
+@media (max-width: 1200px) {
+    .contact-inner {
+        flex-direction: column;
+        align-items   : center;
     }
+
+    .box.left,
+    .box.right {
+        width    : 100%;
+        max-width: 700px;
+    }
+
+    .box.right {
+        margin-top: 20px;
+    }
+}
 
 
 
@@ -994,54 +1402,62 @@ text-align: center;
 /* Responsive */
 @media (max-width: 768px) {
     .lastest__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    font-size: 13px;
-    color: #777777;
-}
-    .footer__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 40px;
-    border-bottom: 1px solid var(--line-color);
-    padding-bottom: 50px;
-    margin-bottom: 30px;
-}
-    .footer__list {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    gap: 60px;
-    justify-content: flex-end;
-}
-    .work__box button{
-        display: block;
-        margin: 0 auto;
+        display        : flex;
+        flex-wrap      : wrap;
+        justify-content: center;
+        align-items    : center;
+        gap            : 20px;
+        font-size      : 13px;
+        color          : #777777;
     }
-    .work__container img{
-    width: 400px;
-}
-    .work__box p{
-width: 400px;
-text-align: center;
-}
-    .work__box h2{
-        width: 450px;
+
+    .footer__container {
+        display        : flex;
+        flex-direction : column;
+        justify-content: space-between;
+        gap            : 40px;
+        border-bottom  : 1px solid var(--line-color);
+        padding-bottom : 50px;
+        margin-bottom  : 30px;
+    }
+
+    .footer__list {
+        display        : flex;
+        flex-wrap      : wrap;
+        list-style     : none;
+        padding        : 0;
+        margin         : 0;
+        gap            : 60px;
+        justify-content: flex-end;
+    }
+
+    .work__box button {
+        display: block;
+        margin : 0 auto;
+    }
+
+    .work__container img {
+        width: 400px;
+    }
+
+    .work__box p {
+        width     : 400px;
         text-align: center;
-margin-bottom: 50px;
-}
-    .work__container{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
+    }
+
+    .work__box h2 {
+        width        : 450px;
+        text-align   : center;
+        margin-bottom: 50px;
+    }
+
+    .work__container {
+        display        : flex;
+        flex-direction : column;
+        justify-content: space-between;
+        align-items    : center;
+    }
+
     .testimonials__box ul {
         display        : flex;
         flex-direction : column;
@@ -1056,10 +1472,12 @@ margin-bottom: 50px;
         justify-content: space-between;
         gap            : 100px;
     }
-.categories__container img {
-    margin-bottom: 30px;
-    max-width    : 90vw;
-}
+
+    .categories__container img {
+        margin-bottom: 30px;
+        max-width    : 90vw;
+    }
+
     .card__box h4 {
         font-family   : Liberation Serif;
         font-weight   : 400;
@@ -1078,10 +1496,12 @@ margin-bottom: 50px;
         letter-spacing: 0%;
         margin-bottom : 10px;
     }
-.card__container img {
-    width : 500px;
-    height: 600px;
-}
+
+    .card__container img {
+        width : 500px;
+        height: 600px;
+    }
+
     .card__box {
         display       : flex;
         flex-direction: column;
