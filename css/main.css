@@ -5,12 +5,14 @@
     font-family    : "Poppins", sans-serif;
     list-style     : none;
     text-decoration: none;
+
 }
 
 html {
     /* Bu xossa avtomatik tarzda barcha sahifa ichidagi bog'lanmalarni (linklar)
        silliq siljitishini ta'minlaydi. */
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .container {
